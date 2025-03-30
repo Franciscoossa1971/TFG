@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:angular": "ng build",
+    "build:docker": "sudo docker build -t gestion-almacen-frontend .",
+    "deploy:docker": "sudo docker run -d -p 8080:80 gestion-almacen-frontend",
+    "build:all": "npm run build:angular && npm run build:docker && npm run deploy:docker"
   },
   "private": true,
   "dependencies": {
@@ -17,6 +21,7 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
