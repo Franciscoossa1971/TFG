@@ -1,0 +1,78 @@
+# --- General ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# --- Angular ---
+node_modules/
+dist/
+out-tsc/
+.angular/
+coverage/
+environment.ts
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# --- Spring Boot & Java ---
+/target/
+/bin/
+/.gradle/
+/.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+*.swp
+*~
+
+# IntelliJ IDEA
+*.iml
+.idea/
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+mvnw*
+*.jar
+*.war
+
+# Database files
+*.h2.db
+*.mv.db
+*.sql
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+hs_err_pid*
+*.javadoc
+
+# Compiled source
+*.class
+
+# Generated files
+*.gwt-tmp/
+/.factorypath
+
+# Lombok cache
+.lombok
