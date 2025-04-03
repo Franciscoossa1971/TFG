@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: ./gestion-almacen-frontend
+      dockerfile: Dockerfile
+    container_name: gestion-almacen-frontend
+    working_dir: /app
+    restart: always
+    volumes:
+      - ./gestion-almacen-frontend:/app
+      - /app/node_modules
+  #   depends_on:
+  #    - backend
+    ports:
+      - "5000:5000"
+    command:
+      [
+        "sh",
+        "-c",
+        "npm install && ng serve --host 0.0.0.0 --port 5000 --poll 2000 --watch",
+      ]
+  
+  db:
+    image: postgres:13
+    container_name: tfg_postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tfg_db
+    ports:
+      - "5555:5432"
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d tfg_db"]
+      interval: 10s
+      retries: 5
+
+volumes:
+  pgdata:
